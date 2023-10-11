@@ -1,0 +1,82 @@
+main{
+    width: 100%;
+    height: 100vh;
+
+    display: grid;
+    grid-template-areas: "uno tres  tres  cuatro"
+                         "dos tres tres cinco"
+                         "cinco_b cinco_b seis seis";
+}
+
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.uno{
+    grid-area: uno;
+    background-color: yellow;
+}
+
+.dos{
+    grid-area: dos;
+    background-color: yellow;
+}
+
+.tres{
+    grid-area: tres;
+    background-color: green;
+}
+
+.cuatro{
+    grid-area: cuatro;
+    background-color: yellow;
+}
+
+.cinco{
+    grid-area: cinco;
+    background-color: yellow;
+}
+
+.cinco_b{
+    grid-area: cinco_b;
+    background-color: pink;
+}
+
+.seis{
+    grid-area: seis;
+    background-color: blue;
+}
+
+
+@media screen and (width < 900px) {
+    main{
+        display: grid;
+        grid-template-areas: "uno uno  uno  dos"
+                             "tres tres cuatro cuatro"
+                             "tres tres cuatro cuatro"
+                             "tres tres cuatro cuatro"
+                             "cinco cinco seis seis";
+    }
+
+    .cinco_b{
+        display: none;
+    }
+}
+
+@media screen and (width < 400px) {
+    main{
+        grid-template-areas: "seis"
+                             "cinco"
+                             "cuatro"
+                             "tres"
+                             "dos"
+                             "uno"
+    }
+
+    .cinco_b{
+        display: none;
+    }
+}
