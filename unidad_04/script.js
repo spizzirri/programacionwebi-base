@@ -16,9 +16,9 @@ const errores = document.getElementById("errores")
 
 nodo_usuario.addEventListener('keyup', (e)=>{
 
-    REGEX = new RegExp(nodo_regex.value)
+    let REGEX = new RegExp(nodo_regex.value)
 
-    esValido = REGEX.test(nodo_usuario.value)
+    let esValido = REGEX.test(nodo_usuario.value)
     if(!esValido){
         errores.innerText = "Usuario invalido"
     }else{
