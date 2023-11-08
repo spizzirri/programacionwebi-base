@@ -1,0 +1,48 @@
+body{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.preguntas{
+    display: flex;
+    gap: 5em;
+}
+
+article{
+    display: flex;
+    gap: 1em;
+}
+
+.pregunta span{
+    display: block;
+}
+
+.opciones-columna{
+    display: flex;
+    flex-direction: column;
+}
+
+.seccion-final{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nota{
+    display: flex;
+    flex-direction: column;
+}
+
+h2{
+    display: inline;
+}
+
+header{
+    text-align: center;
+}
+
+footer{
+    text-align: left;
+}
