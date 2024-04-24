@@ -1,0 +1,32 @@
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.flex-columna{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.flex-columna article{
+    background-color: lightblue;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.flex-fila{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+.flex-fila article{
+    background-color: lightgreen;
+    border: 1px solid black;
+    width: calc(100%/6);
+    text-align: center;
+}
