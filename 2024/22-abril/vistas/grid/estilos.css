@@ -1,0 +1,46 @@
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.grid-columna{
+    display: grid;
+    grid-template-columns: 100%;
+    align-content: center;
+    justify-content: center;
+}
+
+.grid-columna article{
+    background-color: lightblue;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.grid-fila{
+    display: grid;
+    grid-template-columns: repeat(6, calc(100%/6));
+    align-content: center;
+    justify-content: center;
+}
+
+.grid-fila article{
+    background-color: lightgreen;
+    border: 1px solid black;
+    width: 100%;
+    text-align: center;
+}
+
+.grid-grilla{
+    display: grid;
+    grid-template-columns: repeat(3, calc(100%/3));
+    align-content: center;
+    justify-content: center;
+}
+
+.grid-grilla article{
+    background-color: lightcoral;
+    border: 1px solid black;
+    width: 100%;
+    text-align: center;
+}
