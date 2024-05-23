@@ -4,33 +4,53 @@ const carrito = {
 }
 
 
+function obtenerTexto(selector){
+    const nodo = document.querySelector(selector)
+    let texto = '';
+    if(nodo.nodeName == "INPUT"){
+        texto = nodo.value;
+        nodo.value = '';
+    }else{
+        texto = nodo.textContent
+        nodo.textContent= ''
+    }
+    return texto;
+}
+
+function modificarTexto(selector, texto){
+    const nodo = document.querySelector(selector)
+    if(nodo.nodeName == "INPUT"){
+        nodo.value = texto
+    }else{
+        nodo.textContent = texto
+    }
+}
+
+function generarListaDeItems(selector, lista_de_items){
+    const nodo_detalle = document.querySelector(selector);
+
+    nodo_detalle.innerHTML = ''
+    for(let item of lista_de_items){
+        nodo_detalle.innerHTML = nodo_detalle.innerHTML + `<li>${item['nombre']}: $${item['precio']}</li>`
+    }
+}
+
+
 function sumarItem(evento){
-    const nodo_producto = document.querySelector("#producto")
-    const nodo_precio = document.querySelector("#precio")
 
     nuevo_item = {
-        'nombre': nodo_producto.value,
-        'precio': parseFloat(nodo_precio.value)
+        'nombre': obtenerTexto("#producto"),
+        'precio': parseFloat(obtenerTexto("#precio"))
     }
 
     carrito['items'].push(nuevo_item)
     carrito['total'] += nuevo_item['precio']
-    nodo_producto.value = ''
-    nodo_precio.value = ''
 
-    const nodo_cantidad = document.querySelector("#cantidad_items")
-    nodo_cantidad.textContent = "Cantidad: " + carrito['items'].length
+    modificarTexto("#cantidad_items", `Cantidad: ${carrito['items'].length}`)
 
-    const nodo_detalle = document.querySelector("#detalle_items");
+    generarListaDeItems("#detalle_items", carrito['items']);
 
-    nodo_detalle.innerHTML = ''
-    for(let item of carrito['items']){
-        nodo_detalle.innerHTML = nodo_detalle.innerHTML + `<li>${item['nombre']}: $${item['precio']}</li>`
-    }
-
-    const nodo_total = document.querySelector("#total");
-    nodo_total.textContent = `Monto total: $${carrito['total']}`
-
+    modificarTexto("#total", `Monto total: $${carrito['total']}`)
 }
 
 const btn_agregar = document.querySelector("#btn_agregar");
