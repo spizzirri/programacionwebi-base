@@ -16,7 +16,7 @@
         />
 
         <header>
-          <div class="header-options">
+          <div id="header" class="header-options">
             <div class="main-logo">
               <img src="./images/logo.webp" width="111" />
             </div>
@@ -26,11 +26,16 @@
           </div>
           <div class="navbar-container">
             <nav class="navbar">
-              <ul>
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/">Series</a></li>
-                <li><a href="/">Peliculas</a></li>
-                <li><a href="/">HBO</a></li>
+              <ul class="menu-items">
+                <li class="menu-items--item"><a href="/">Inicio</a></li>
+                <li class="menu-items--item">
+                  <a href="/"
+                    >Series
+                    <div class="submenu">Menu oculto</div></a
+                  >
+                </li>
+                <li class="menu-items--item"><a href="/">Peliculas</a></li>
+                <li class="menu-items--item"><a href="/">HBO</a></li>
               </ul>
             </nav>
           </div>
@@ -187,5 +192,12 @@
         </div>
       </div>
     </div>
+    <footer>
+      <ul>
+        <li class="menu-items--item">Contacto</li>
+        <li class="menu-items--item">Terminos y condiciones</li>
+      </ul>
+    </footer>
+    <script src="./js/main.js"></script>
   </body>
 </html>

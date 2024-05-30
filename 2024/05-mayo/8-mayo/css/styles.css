@@ -55,6 +55,27 @@ h1 span {
   position: relative;
 }
 
+.navbar ul .menu-items--item .show-submenu {
+  /* font-weight: 700; */
+  background-color: aliceblue;
+}
+
+.navbar ul .menu-items--item .show-submenu {
+  color: black;
+}
+
+.navbar ul .menu-items--item .submenu {
+  display: none;
+}
+
+.navbar ul .menu-items--item .show-submenu .submenu {
+  display: block;
+  background-color: white;
+  padding: 12px;
+  position: absolute;
+  color: black;
+}
+
 header {
   position: absolute;
   padding: 20px 40px;
@@ -86,19 +107,19 @@ header .header-options {
   padding: 0;
 }
 
-.navbar ul li {
-  padding: 10px;
+.navbar ul .menu-items--item {
+  padding: 12px;
   color: #ffffff;
 }
 
-.navbar ul li a {
+.navbar ul .menu-items--item a {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
 }
 
-.navbar ul li a:hover {
-  font-weight: 500;
-  color: #ffffff;
+.navbar ul .menu-items--item a:hover {
+  /* font-weight: 500;
+  color: #ffffff; */
 }
 
 .movie-details {
