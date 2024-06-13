@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <h2 class="title is-2">Forms</h2>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column">
+          <div class="field field-name">
+            <label class="label">Nombre</label>
+            <div class="control">
+              <input
+                class="input"
+                type="text"
+                placeholder="Nombre"
+                id="name"
+                required
+              />
+            </div>
+            <p class="help is-danger is-hidden"></p>
+          </div>
+
+          <div class="field field-email">
+            <label class="label">Email</label>
+            <div class="control">
+              <input
+                class="input"
+                type="email"
+                placeholder="Email input"
+                id="email"
+              />
+            </div>
+            <p class="help is-danger is-hidden">This email is invalid</p>
+          </div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column">
+          <div class="buttons">
+            <button class="button is-primary js-submit-btn">Submit</button>
+            <button class="button is-link">Link</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

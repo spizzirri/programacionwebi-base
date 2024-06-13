@@ -30,12 +30,21 @@ function addItemToMainMenu(parentNode, className, link) {
 }
 
 function checkItemMenuClick() {
-  const menuItems = document.querySelectorAll(".menu-items .menu-items--item");
+  const menuItems = document.querySelectorAll(
+    ".menu-items .menu-items--item a"
+  );
 
   menuItems.forEach((item) => {
     item.addEventListener("click", (event) => {
       event.preventDefault();
       const target = event.target;
+
+      menuItems.forEach((menuItem) => {
+        if (menuItem.classList.contains("show-submenu")) {
+          menuItem.classList.remove("show-submenu");
+        }
+      });
+
       target.classList.toggle("show-submenu");
     });
   });
