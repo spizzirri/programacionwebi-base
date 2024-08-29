@@ -1,0 +1,44 @@
+* {
+    padding: 0;
+}
+
+h1, h2 {
+    color: blue;
+}
+
+h1 {
+    color: yellow
+}
+
+a {
+    display: block;
+    text-decoration: none;
+}
+
+a:hover{
+   background-color: blue;
+   text-decoration:underline; 
+}
+
+.titulo{
+    font-size: 20px;
+    color: green;
+}
+
+.perfil{
+    font-weight: 700;
+}
+
+#home{
+    background-color: aqua;
+    width: 200px;
+}
+
+#links{
+    background-color: orange;
+    width: 200px;
+}
+
+main {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
