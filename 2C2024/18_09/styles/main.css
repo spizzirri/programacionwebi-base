@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Button Component */
+.button {
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.button:hover {
+  background-color: rgba(64, 68, 89, 0.6);
+  border-radius: 8px;
+}
+
+.button--primary,
+.button--success,
+.button--danger {
+  background-color: rgb(0, 43, 231);
+  border-radius: 8px;
+  padding: 10px 24px;
+}
+
+.button--success {
+  background-color: green;
+}
+
+.button--danger {
+  background-color: red;
+}
+/* End Button Component */
+
+/* List Component */
+.list {
+  list-style: none;
+  padding: 0;
+}
+/* End List Component */
