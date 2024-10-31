@@ -14,3 +14,7 @@ main{
 form{
     width: 100%;
 }
+
+.error{
+    background-color: orangered;
+}
