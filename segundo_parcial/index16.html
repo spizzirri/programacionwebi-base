@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 16</title>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+        .combate{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100vh;
+            justify-content: space-between;
+        }
+        .pokemon{
+            height: 5em;
+            background-color: blueviolet;
+            border-radius: 1em;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .pokemon img{
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .pokemon-rival{
+            align-self: flex-end;
+        }
+        .pokemon-usuario{
+            align-self: flex-start;
+        }
+        .botones{
+            display: flex;
+            flex-direction: column;
+        }
+        .modal{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .modal-content {
+            background: palevioletred;
+            padding: 2em;
+            border-radius: 1em;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <header></header>
+    <main>
+        <section class="combate">
+            <div id="pokemon-rival" name="pokemon-rival" class="pokemon-rival">
+                <div class="pokemon">
+                    <img src="" alt="Imagen pokemon rival">
+                </div>
+                <p> Energia: 100% </p>
+                <div class="botones">
+                    <input type="button" value="Rendirse">
+                    <input type="button" value="Lanzar poder">
+                </div>
+            </div>
+            <div id="pokemon-usuario" name="pokemon-usuario" class="pokemon-usuario">
+                <div class="pokemon">
+                    <img src="" alt="Imagen pokemon usuario">
+                </div>
+                <p> Energia: 100% </p>
+                <div class="botones">
+                    <input type="button" value="Rendirse">
+                    <input type="button" value="Lanzar poder">
+                </div>
+            </div>
+        </section>
+    </main>
+    <section id="modal" class="modal">
+        <article class="modal-content">
+            <button> Poder 1 </button>
+            <button> Poder 2 </button>
+            <button> Poder 3 </button>
+        </article>
+    </section>
+</body>
+</html>

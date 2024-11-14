@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 15</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            position: relative
+        }
+        header{
+            text-align: center;
+        }
+        .pokemons{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 10em 1em ;
+            gap: 1em;
+            justify-content: center;
+            margin: 5%;
+        }
+        .pokemon{
+            height: 10em;
+            width: 100%;
+            background-color: blueviolet;
+            border-radius: 1em;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .pokemon img{
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .ver-pokemon{
+            position: absolute;
+            top: 1em;
+            right: 1em;
+        }
+        .combatir{
+            background-color: lightgreen;
+            padding-left: 1em;
+            padding-right: 1em;
+            margin-left: 85%;
+        }
+        .modal{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .modal-content {
+            background: white;
+            padding: 2em;
+            border-radius: 1em;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Elige la criatura para jugar</h1>
+    </header>
+    <main>
+        <section class="pokemons">
+            <div id="pokemon1" name="pokemon1" class="pokemon">
+                <button id="ver-pokemon1" ver="ver-pokemon1" class="ver-pokemon">Ver</button>
+                <img src="" alt="Imagen pokemon 1">
+            </div>
+            <div id="pokemon2" name="pokemon2" class="pokemon">
+                <button id="ver-pokemon2" ver="ver-pokemon2" class="ver-pokemon">Ver</button>
+                <img src="" alt="Imagen pokemon 2">
+            </div>
+            <div id="pokemon3" name="pokemon3" class="pokemon">
+                <button id="ver-pokemon3" ver="ver-pokemon3" class="ver-pokemon">Ver</button>
+                <img src="" alt="Imagen pokemon 3">
+            </div>
+            <div id="pokemon4" name="pokemon4" class="pokemon">
+                <button id="ver-pokemon4" ver="ver-pokemon4" class="ver-pokemon">Ver</button>
+                <img src="" alt="Imagen pokemon 4">
+            </div>
+            <input type="radio" name="pokemon" id="pokemon1">
+            <input type="radio" name="pokemon" id="pokemon2">
+            <input type="radio" name="pokemon" id="pokemon3">
+            <input type="radio" name="pokemon" id="pokemon4">
+        </section>
+        <Button id="btn-combatir" class="combatir"> Combatir </Button>
+    </main>
+    <section id="modal" class="modal">
+        <article class="modal-content">
+            <p>
+                Pokemon seleccionado
+            </p>
+            <button> Aceptar </button>
+        </article>
+    </section>
+</body>
+</html>
