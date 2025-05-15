@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    html {
+      font-size: 16px; /* 1rem = 16px */
+    }
+
+    .padre {
+      font-size: 20px; /* 1em dentro de este div = 20px */
+    }
+
+    .em-ejemplo {
+      font-size: 2em; /* 2 * 20px = 40px */
+    }
+
+    .rem-ejemplo {
+      font-size: 2rem; /* 2 * 16px = 32px */
+    }
+  </style>
+</head>
+<body>
+  <main class="padre">
+    <p class="em-ejemplo">Texto con 2em (basado en el padre)</p>
+    <p class="rem-ejemplo">Texto con 2rem (basado en html)</p>
+  </main>
+</body>
+</html>
