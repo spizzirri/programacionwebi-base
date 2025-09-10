@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repaso HTML</title>
+    <link rel="stylesheet" href="./estilos.css">
+</head>
+<body>
+    <h1>Formulario de Contacto</h1>
+    <main>
+        <form action="./detalle.html" method="get">
+            <label for="nombre">Nombre:
+                <input type="text" id="nombre" name="nombre" required>
+            </label>
+            <label for="email">Correo Electrónico:
+                <input type="email" id="email" name="email" required>
+            </label>
+            <label for="mensaje">Mensaje:
+                <textarea id="mensaje" name="mensaje" rows="4" cols="30" required></textarea>
+            </label>
+            <button type="submit">Enviar</button>
+        </form>
+    </main>
+</body>
+</html>
