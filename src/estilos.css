@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    position: relative;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1em;
+    height: 100%;
+    padding: 1em;
+    justify-content: center;
+}
+
+main section {
+    border: 1px solid black;
+    background-color: lightgray;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.ezq-superior-derecha {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    font-weight: bold;
+}
+
+.ezq-superior-izquierda {
+    position: absolute;
+    top: 0.5em;
+    left: 0.5em;
+    font-weight: bold;
+}
+
+.ezq-inferior-derecha {
+    position: absolute;
+    bottom: 0.5em;
+    right: 0.5em;
+    font-weight: bold;
+}
+
+.ezq-inferior-izquierda {
+    position: absolute;
+    bottom: 0.5em;
+    left: 0.5em;
+    font-weight: bold;
+}
+
+.btn--circular {
+    width: 80px;
+    height: 80px;
+    bottom: 1em;
+    right: 1em;
+    box-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    border-radius: 50%;
+    background-color: darkgray;
+    border: none;
+    cursor: pointer;
+    font-size: 2em;
+}
+
+header{
+    text-align: center;
+}
+
+@media screen and (width < 600px) {
+    main {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(9, auto);
+    }
+
+    .ezq-inferior-derecha,
+    .ezq-inferior-izquierda,
+    .ezq-superior-derecha,
+    .ezq-superior-izquierda {
+        display: none;
+    }
+
+    .btn--circular {
+        width: 40px;
+        height: 40px;
+        font-size: 1em;
+    }
+}
