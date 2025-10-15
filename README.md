@@ -21,3 +21,6 @@
 
     * A partir de la segunda vez:
         * Ejecutar ```npx http-server [path del archivo index.html]``` 
+
+* python3:
+    * Ejecutar ```python3 -m http.server``` ó ```python -m http.server``` 
