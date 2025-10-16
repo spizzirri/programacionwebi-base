@@ -1,4 +1,6 @@
 /// DOM: Document Object Model
+import { BuscadorElementos } from "./buscadorElementos.js";
+import { FormularioLogin } from "./formularioLogin.js";
 
 const buscadorDOM = new BuscadorElementos();
 const FORM = buscadorDOM.buscarElemento('#formulario1');

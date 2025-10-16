@@ -1,4 +1,4 @@
-class BuscadorElementos {
+export class BuscadorElementos {
     constructor() {}
 
     buscarElemento(cssSelector){

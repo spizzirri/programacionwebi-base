@@ -1,4 +1,4 @@
-class FormularioLogin {
+export class FormularioLogin {
 
     constructor(username, password) {
         this._username = username;
