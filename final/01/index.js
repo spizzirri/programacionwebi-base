@@ -1,7 +1,19 @@
 const botones = document.querySelectorAll('button');
 const resultado = document.querySelector('p');
+const VALIDACION = 'Validacion: ';
 
-const VALIDACION = 'Validacion: '
+function limpiarEstado(){
+    operacion = '';
+    numero2 = '';
+    operador = '';
+    resultado.textContent = `${VALIDACION}`;
+}
+
+function actualizarValidacion(operacion){
+    const VALIDACION = 'Validacion: ';
+    resultado.textContent = `${VALIDACION} ${operacion}`;
+}
+
 let operacion = '';
 let cantidadDeClick = 0;
 let numero1 = '';
@@ -17,31 +29,27 @@ botones.forEach(boton => {
         if(cantidadDeClick == 3) numero2 = boton.textContent;
         if(cantidadDeClick == 4) {
             cantidadDeClick = 1;
-            operacion = '';
-            numero2 = '';
-            operador = '';
-            resultado.textContent = VALIDACION;
+            limpiarEstado();
             numero1 = boton.textContent;
          }
 
         operacion += boton.textContent;
-        resultado.textContent = `${VALIDACION} ${operacion}`;
-        
+        actualizarValidacion(operacion);
 
         if(cantidadDeClick == 3){
 
             switch(operador){
                 case '<':
-                    resultado.textContent = `${VALIDACION} ${operacion} = ${Number(numero1) < Number(numero2)}`;
+                    actualizarValidacion(`${operacion} = ${Number(numero1) < Number(numero2)}`)
                     break;
                 case '>':
-                    resultado.textContent = `${VALIDACION} ${operacion} = ${Number(numero1) > Number(numero2)}`;
+                    actualizarValidacion(`${operacion} = ${Number(numero1) > Number(numero2)}`)
                     break;
                 case '=':
-                    resultado.textContent = `${VALIDACION} ${operacion} = ${Number(numero1) === Number(numero2)}`;
+                    actualizarValidacion(`${operacion} = ${Number(numero1) === Number(numero2)}`)
                     break;
                 case '!=':
-                    resultado.textContent = `${VALIDACION} ${operacion} = ${Number(numero1) !== Number(numero2)}`;
+                    actualizarValidacion(`${operacion} = ${Number(numero1) !== Number(numero2)}`)
                     break;
             }
         }
