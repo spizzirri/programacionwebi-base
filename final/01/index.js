@@ -15,6 +15,14 @@ botones.forEach(boton => {
         if(cantidadDeClick == 1) numero1 = boton.textContent;
         if(cantidadDeClick == 2) operador = boton.textContent;
         if(cantidadDeClick == 3) numero2 = boton.textContent;
+        if(cantidadDeClick == 4) {
+            cantidadDeClick = 1;
+            operacion = '';
+            numero2 = '';
+            operador = '';
+            resultado.textContent = VALIDACION;
+            numero1 = boton.textContent;
+         }
 
         operacion += boton.textContent;
         resultado.textContent = `${VALIDACION} ${operacion}`;
