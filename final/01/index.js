@@ -12,9 +12,7 @@ botones.forEach(boton => {
     boton.addEventListener('click', () => {
 
         cantidadDeClick++;
-        if(cantidadDeClick == 1) validador.agregarElemento(boton.textContent);
-        if(cantidadDeClick == 2) validador.agregarElemento(boton.textContent);
-        if(cantidadDeClick == 3) validador.agregarElemento(boton.textContent);
+        validador.agregarElemento(boton.textContent);
         if(cantidadDeClick == 4) {
             cantidadDeClick = 1;
             validador.limpiarEstado();
