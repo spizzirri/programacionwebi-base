@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar Sesión</title>
+  </head>
+  <body>
+    <header>
+      <div>Logo...</div>
+      <nav>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Series</a></li>
+          <li><a href="./pages/login.html">Ingresa</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <div>
+          <form action="../index.html" method="post">
+            <label for="name">Nombre de usuario:</label>
+            <input
+              type="text"
+              id="name"
+              name="user_name"
+              placeholder="Nombre de usuario"
+              required
+            />
+            <label for="sex">Sexo:</label>
+            <input type="radio" id="male" name="sex" value="male" />
+            <label for="male">Masculino</label>
+            <input type="radio" id="female" name="sex" value="female" />
+            <label for="female">Femenino</label>
+            <label for="email">Correo electrónico:</label>
+            <input
+              type="email"
+              id="email"
+              name="user_email"
+              placeholder="Correo electrónico"
+              required
+            />
+            <label for="country">País:</label>
+            <select name="country" id="country">
+              <option value="argentina">Argentina</option>
+              <option value="brazil">Brasil</option>
+            </select>
+            <label for="password">Contraseña:</label>
+            <input
+              type="password"
+              id="password"
+              name="user_password"
+              placeholder="Contraseña"
+              required
+            />
+            <label for="terms">Acepto los términos y condiciones</label>
+            <input type="checkbox" id="terms" name="terms" required />
+            <button>Iniciar Sesión</>
+            <button type="reset">Cancelar</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Copyright 2024 HBO MAX</p>
+    </footer>
+  </body>
+</html>

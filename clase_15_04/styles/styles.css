@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #000000;
+}
+
+header {
+  padding: 8px 16px;
+  margin-bottom: 48px;
+  display: flex;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  background-color: blue;
+}
+
+.menu .list {
+  display: flex;
+  background-color: #000000;
+}
+
+.menu ul li a {
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0px;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 10px;
+  margin: 0;
+  border-radius: 8px;
+}
+
+.menu ul li a:hover {
+  background-color: rgba(64, 68, 89, 0.6);
+}
+
+#footer {
+  background-color: red;
+}
