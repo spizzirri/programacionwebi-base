@@ -1,16 +1,5 @@
 const formulario = document.querySelector('#formulario');
 
-/*
-const estaLogueado = localStorage.getItem('nombre');
-
-if (estaLogueado) {
-    document.querySelector('span').textContent = estaLogueado;
-    document.querySelector('form').style.display = 'none';
-} else {
-    document.querySelector('#borrar').style.display = 'none';
-}
-*/
-
 formulario.addEventListener('submit', function (e) {
 
     e.preventDefault();
@@ -23,10 +12,6 @@ formulario.addEventListener('submit', function (e) {
     e.target.submit();
 });
 
-const aa = {
-    nombre: 'Juan',
-    apellido: 'Perez',
-    edad: 30,
+if (!localStorage.getItem('datos_peliculas')) {
+    localStorage.setItem('datos_peliculas', JSON.stringify(DATOS_PELICULAS));
 }
-
-localStorage.setItem('miObjeto', JSON.stringify(aa));
