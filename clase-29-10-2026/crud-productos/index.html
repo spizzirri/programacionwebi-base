@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Aplicación CRUD de productos con HTML, CSS y JavaScript."
+    />
+    <meta name="theme-color" content="#172337" />
+
+    <title>CRUD de Productos</title>
+
+    <link rel="stylesheet" href="./css/styles.css" />
+
+    <!-- Punto de entrada para JavaScript.
+       Crearemos este archivo en la siguiente etapa. -->
+    <script type="module" src="./js/main.js"></script>
+  </head>
+
+  <body>
+    <div class="app">
+      <!-- Encabezado principal -->
+      <header class="topbar">
+        <a class="brand" href="./index.html" aria-label="Inicio">
+          <span class="brand__icon" aria-hidden="true">◆</span>
+          <span>CRUD <span class="text-accent">de Productos</span></span>
+        </a>
+
+        <div class="topbar__info">
+          <span class="status-indicator" aria-hidden="true"></span>
+          <span>Entorno de práctica</span>
+        </div>
+      </header>
+
+      <div class="app__layout">
+        <!-- Navegación lateral -->
+        <aside class="sidebar" aria-label="Navegación principal">
+          <nav>
+            <ul class="sidebar__nav">
+              <li>
+                <a
+                  class="sidebar__link sidebar__link--active"
+                  href="#productos"
+                  aria-current="page"
+                >
+                  <span aria-hidden="true">▦</span>
+                  Productos
+                </a>
+              </li>
+              <li>
+                <a class="sidebar__link" href="#informacion">
+                  <span aria-hidden="true">ⓘ</span>
+                  Acerca del proyecto
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="sidebar__footer">
+            <span class="sidebar__footer-title">CRUD de Productos</span>
+            <span>HTML · CSS · JavaScript</span>
+            <span>Persistencia local</span>
+          </div>
+        </aside>
+
+        <!-- Contenido principal -->
+        <main class="main-content" id="productos">
+          <section class="page-heading" aria-labelledby="page-title">
+            <div>
+              <span class="eyebrow">ADMINISTRACIÓN</span>
+              <h1 id="page-title">Productos</h1>
+              <p class="page-description">
+                Gestioná tu catálogo de productos desde un único lugar. Creá,
+                consultá, editá y eliminá registros.
+              </p>
+            </div>
+
+            <button
+              class="button button--primary"
+              id="btn-new-product"
+              type="button"
+            >
+              <span aria-hidden="true">＋</span>
+              Nuevo producto
+            </button>
+          </section>
+
+          <!-- Mensajes globales: éxito, error e información -->
+          <div
+            class="alert"
+            id="global-message"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+            hidden
+          ></div>
+
+          <!-- Indicadores -->
+          <section class="stats-grid" aria-label="Resumen de productos">
+            <article class="stat-card">
+              <span class="stat-card__label">Total de productos</span>
+              <strong class="stat-card__value" id="total-products">0</strong>
+              <span class="stat-card__detail">Registros del catálogo</span>
+            </article>
+
+            <article class="stat-card">
+              <span class="stat-card__label">Productos activos</span>
+              <strong class="stat-card__value" id="active-products">0</strong>
+              <span class="stat-card__detail">Disponibles en el catálogo</span>
+            </article>
+
+            <article class="stat-card">
+              <span class="stat-card__label">Stock bajo</span>
+              <strong class="stat-card__value" id="low-stock-products"
+                >0</strong
+              >
+              <span class="stat-card__detail">Stock igual o inferior a 5</span>
+            </article>
+          </section>
+
+          <!-- Listado y formulario -->
+          <div class="workspace">
+            <!-- Listado -->
+            <section class="panel product-list" aria-labelledby="list-title">
+              <div class="panel__header">
+                <div>
+                  <h2 id="list-title">Listado de productos</h2>
+                  <p>Consultá y administrá tus registros.</p>
+                </div>
+
+                <span class="counter" id="visible-products-count">
+                  0 productos
+                </span>
+              </div>
+
+              <!-- Búsqueda y filtros -->
+              <form class="filters" id="filter-form" role="search">
+                <div class="field field--search">
+                  <label class="visually-hidden" for="search-product">
+                    Buscar productos
+                  </label>
+                  <input
+                    id="search-product"
+                    name="search"
+                    type="search"
+                    placeholder="Buscar por nombre o descripción..."
+                    autocomplete="off"
+                  />
+                </div>
+
+                <div class="field field--filter">
+                  <label class="visually-hidden" for="filter-category">
+                    Filtrar por categoría
+                  </label>
+                  <select id="filter-category" name="category">
+                    <option value="">Todas las categorías</option>
+                    <option value="electronica">Electrónica</option>
+                    <option value="informatica">Informática</option>
+                    <option value="hogar">Hogar</option>
+                    <option value="indumentaria">Indumentaria</option>
+                    <option value="otros">Otros</option>
+                  </select>
+                </div>
+
+                <button
+                  class="button button--secondary button--small"
+                  id="btn-clear-filters"
+                  type="button"
+                >
+                  Limpiar
+                </button>
+              </form>
+
+              <!-- Tabla responsive -->
+              <div class="table-container">
+                <table class="data-table">
+                  <caption class="visually-hidden">
+                    Productos registrados, sus precios, stock y acciones.
+                  </caption>
+
+                  <thead>
+                    <tr>
+                      <th scope="col">Producto</th>
+                      <th scope="col">Categoría</th>
+                      <th scope="col">Precio</th>
+                      <th scope="col">Stock</th>
+                      <th scope="col">Estado</th>
+                      <th scope="col">Acciones</th>
+                    </tr>
+                  </thead>
+
+                  <tbody id="products-table-body">
+                    <!-- JavaScript generará las filas aquí. -->
+
+                    <tr id="empty-state">
+                      <td colspan="6">
+                        <div class="empty-state">
+                          <span class="empty-state__icon" aria-hidden="true"
+                            >◇</span
+                          >
+                          <h3>No hay productos cargados</h3>
+                          <p>Agregá tu primer producto para comenzar.</p>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="panel__footer">
+                <span id="table-summary"> Mostrando 0 productos </span>
+              </div>
+            </section>
+
+            <!-- Formulario de alta y modificación -->
+            <section
+              class="panel product-form-panel"
+              id="product-form-section"
+              aria-labelledby="form-title"
+            >
+              <div class="panel__header">
+                <div>
+                  <h2 id="form-title">Nuevo producto</h2>
+                  <p id="form-description">
+                    Completá los datos para registrar un producto.
+                  </p>
+                </div>
+              </div>
+
+              <form id="product-form" novalidate>
+                <!-- Se utilizará al editar un registro existente. -->
+                <input type="hidden" id="product-id" name="id" />
+
+                <div class="form-grid">
+                  <div class="field field--full">
+                    <label for="product-name">
+                      Nombre <span class="required">*</span>
+                    </label>
+                    <input
+                      id="product-name"
+                      name="name"
+                      type="text"
+                      placeholder="Ej.: Teclado mecánico"
+                      maxlength="100"
+                      autocomplete="off"
+                      aria-describedby="product-name-error"
+                      required
+                    />
+                    <small
+                      class="field-error"
+                      id="product-name-error"
+                      aria-live="polite"
+                    >
+                    </small>
+                  </div>
+
+                  <div class="field field--full">
+                    <label for="product-category">
+                      Categoría <span class="required">*</span>
+                    </label>
+                    <select
+                      id="product-category"
+                      name="category"
+                      aria-describedby="product-category-error"
+                      required
+                    >
+                      <option value="">Seleccioná una categoría</option>
+                      <option value="electronica">Electrónica</option>
+                      <option value="informatica">Informática</option>
+                      <option value="hogar">Hogar</option>
+                      <option value="indumentaria">Indumentaria</option>
+                      <option value="otros">Otros</option>
+                    </select>
+                    <small
+                      class="field-error"
+                      id="product-category-error"
+                      aria-live="polite"
+                    >
+                    </small>
+                  </div>
+
+                  <div class="field">
+                    <label for="product-price">
+                      Precio (ARS) <span class="required">*</span>
+                    </label>
+                    <input
+                      id="product-price"
+                      name="price"
+                      type="number"
+                      placeholder="19999.99"
+                      min="0.01"
+                      max="999999999"
+                      step="0.01"
+                      inputmode="decimal"
+                      aria-describedby="product-price-error"
+                      required
+                    />
+                    <small
+                      class="field-error"
+                      id="product-price-error"
+                      aria-live="polite"
+                    >
+                    </small>
+                  </div>
+
+                  <div class="field">
+                    <label for="product-stock">
+                      Stock <span class="required">*</span>
+                    </label>
+                    <input
+                      id="product-stock"
+                      name="stock"
+                      type="number"
+                      placeholder="10"
+                      min="0"
+                      max="999999999"
+                      step="1"
+                      inputmode="numeric"
+                      aria-describedby="product-stock-error"
+                      required
+                    />
+                    <small
+                      class="field-error"
+                      id="product-stock-error"
+                      aria-live="polite"
+                    >
+                    </small>
+                  </div>
+
+                  <div class="field field--full">
+                    <label for="product-description">Descripción</label>
+                    <textarea
+                      id="product-description"
+                      name="description"
+                      rows="3"
+                      maxlength="500"
+                      placeholder="Describí brevemente el producto..."
+                      aria-describedby="description-counter"
+                    >
+                    </textarea>
+                    <small
+                      class="field-error"
+                      id="product-description-error"
+                      aria-live="polite"
+                    >
+                    </small>
+                    <small class="field-hint" id="description-counter">
+                      Máximo 500 caracteres.
+                    </small>
+                  </div>
+
+                  <div class="field field--full">
+                    <label for="product-image">Imagen (URL)</label>
+                    <input
+                      id="product-imageUrl"
+                      name="imageUrl"
+                      type="url"
+                      maxlength="2048"
+                      placeholder="https://ejemplo.com/imagen.jpg"
+                      autocomplete="url"
+                      aria-describedby="product-image-error"
+                    />
+                    <small
+                      class="field-error"
+                      id="product-imageUrl-error"
+                      aria-live="polite"
+                    >
+                    </small>
+                  </div>
+
+                  <div class="field field--full">
+                    <label for="product-active">Estado del producto</label>
+                    <label class="switch">
+                      <input
+                        id="product-active"
+                        name="active"
+                        type="checkbox"
+                        checked
+                      />
+                      <span class="switch__track" aria-hidden="true"></span>
+                      <span class="switch__label">Producto activo</span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Mensajes exclusivos del formulario -->
+                <div
+                  class="alert"
+                  id="form-message"
+                  role="status"
+                  aria-live="polite"
+                  aria-atomic="true"
+                  hidden
+                ></div>
+
+                <div class="form-actions">
+                  <button
+                    class="button button--secondary"
+                    id="btn-reset-form"
+                    type="reset"
+                  >
+                    Limpiar
+                  </button>
+
+                  <button
+                    class="button button--primary"
+                    id="btn-save-product"
+                    type="submit"
+                  >
+                    Guardar producto
+                  </button>
+                </div>
+
+                <p class="form-note">
+                  Los campos marcados con
+                  <span class="required">*</span> son obligatorios.
+                </p>
+              </form>
+            </section>
+          </div>
+
+          <!-- Información educativa -->
+          <section
+            class="learning-panel"
+            id="informacion"
+            aria-labelledby="learning-title"
+          >
+            <div>
+              <h2 id="learning-title">Sobre este proyecto</h2>
+              <p>
+                CRUD educativo para practicar JavaScript moderno, manipulación
+                del DOM y persistencia local.
+              </p>
+            </div>
+
+            <ul class="topic-list">
+              <li>Variables, objetos y arreglos</li>
+              <li>Clases, métodos y encapsulamiento</li>
+              <li>Módulos ES y separación de responsabilidades</li>
+              <li>JSON y almacenamiento local</li>
+              <li>Validaciones, expresiones regulares y try/catch</li>
+              <li>Callbacks, URL y manejo de eventos</li>
+            </ul>
+          </section>
+
+          <footer class="page-footer">
+            <p>CRUD de Productos · Proyecto educativo</p>
+            <p>HTML5 · CSS3 · JavaScript ES Modules</p>
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
